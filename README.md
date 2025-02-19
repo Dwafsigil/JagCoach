@@ -1,4 +1,4 @@
 # JagCoach
-  cd jagcoach-ui
-  npm install
-  npm run dev
+cd jagcoach-ui
+npm install
+npm run dev
