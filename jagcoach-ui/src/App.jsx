@@ -1,11 +1,24 @@
 
 import './App.css'
-import Dashboard from './pages/Dashboard/Dashboard'
+import Home from './pages/Dashboard/Dashboard'
+import Dashboard from './pages/Home/Home'
+import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 
 function App() {
+  const [videoUrl, setVideoUrl] = useState(null);
+  
   return (
     <div className="App">
-          <Dashboard/>
+      <BrowserRouter>  
+        <Routes>
+          <Route index={true} path="/" element={<Dashboard 
+              videoUrl={videoUrl}
+              setVideoUrl={setVideoUrl}/>} />
+          <Route index={false} path="/dashboard" element={<Home videoUrl={videoUrl}/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
