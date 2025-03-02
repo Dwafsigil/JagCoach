@@ -1,0 +1,26 @@
+.dashboard-page{
+  
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+   
+    /* padding: 20px; */
+}
+.dashboard-content{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.dashboard-content h1{
+    font-size: 2rem;
+    font-weight: 700;
+   text-align: start;
+}
+.video-player {
+    display: flex;
+    justify-content: center;
+    
+}
