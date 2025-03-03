@@ -8,7 +8,7 @@ function UploadBox({setVideoUrl}) {
   const [redirect, setRedirect] = useState(false);
  
   const uploader = Uploader({
-    apiKey: "public_kW2K8DW3ZP3rtp31XjRQqDLexZey"
+    apiKey: ""
   });
   
   const options = {
