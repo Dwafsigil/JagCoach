@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom"; 
 import NavBar from "./components/NavBar/NavBar";
 import Upload from "./components/Upload/Upload";
-import Feedback from "./components/Feedback/Feedback";
+import Feedback from "./components/FeedBack/Feedback"; 
 import Library from "./components/Library/Library";
 import Main from "./components/mainpage/main"; 
 import AboutUs from "./components/Aboutus/Aboutus";
