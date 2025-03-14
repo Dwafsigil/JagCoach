@@ -1,0 +1,9 @@
+/* Make sure the main content doesn't go under the navbar */
+.main-content {
+    display: flex;
+    justify-content: right;
+    height: 100%;
+}
+
+
+

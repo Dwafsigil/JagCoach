@@ -1,0 +1,179 @@
+/* Container for the entire page */
+.dashboard-container{
+    height: 100vh;
+    margin: 15px; 
+    width: 82.5%;
+    color: #302c2b;
+    display: flex;
+    
+    align-self: center;
+    flex-direction: column;
+   
+    
+}
+   
+
+.dashboard-container h1 {
+    font-size: 35px; 
+    font-weight: bold;
+    margin: 0;
+    color: #302c2b;
+}
+
+/* Video upload section */
+.video-section {
+    display: flex;
+    flex-direction: row;
+  
+    margin: 0;
+    padding-top: 20px;
+}
+
+.dashboard-container h2 {
+    font-size: 24px;
+    margin: 0;
+}
+.video-player video {
+    width: 100%;
+    border-radius: 8px 0px 0px 8px;
+    height: 100%;
+    
+
+}
+.video-player {
+    width: 65%;
+    border-radius: 8px 0px 0px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.input-div{
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+/* Transcript section */
+.transcript-box {
+    width: 40%;
+    
+    border-radius: 0px 8px 8px 0px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+    padding: 5px 0px 0px 10px;
+    height: 400px;
+    box-shadow: 0 0px 8px 0px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.transcript-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.transcript-box p {
+    font-size: 16px;
+    color: #555;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Feedback box */
+.feedback-box {
+
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.feedback-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feedback-box p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* General Styles */
+/* h2 {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    color: #312d2c;
+} */
+
+input[type="file"] {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 40px;
+}
+
+input[type="file"]:hover {
+    border-color: #888;
+}
+
+p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: maroon;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: maroon;
+}
+
+
+
+@media (max-width: 1200px) {
+    .dashboard-container {
+        height: 100vh; 
+        width: 80%;
+        color: #302c2b;
+        
+    }
+    
+  }
+
+  @media (max-width: 1100px) {
+    .dashboard-container {
+        height: 100vh; 
+        width: 78%;
+        color: #302c2b;
+        
+    }
+    
+  }
+  @media (max-width: 1024px) {
+    .dashboard-container {
+        height: 100vh; 
+        width: 72%;
+        color: #302c2b;
+        
+    }
+    
+  }
