@@ -1,0 +1,55 @@
+.main-container {
+    background-color: white; 
+    height: 100vh; 
+    width: 100vw; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px; 
+}
+
+/* Logo*/
+.main-logo {
+    width: 400px; 
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+/* Main Heading */
+h1 {
+    font-size: 45px; 
+    font-weight: bold;
+    margin-bottom: 10px; 
+}
+
+/* Introduction Text */
+.intro-text {
+    font-size: 20px;
+    margin: 10px 0;
+    max-width: 600px;
+    line-height: 1.5;
+    color: #333; 
+}
+
+/* Button */
+.main-button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffcc00;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.main-button:hover {
+    background-color: #ffb700;
+}
+
