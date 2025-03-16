@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-# JagCoach
-cd Jagcoach
-
-npm install
-
-npm start
-=======
-<<<<<<< HEAD
 #  JagCoach UI - Team 2
 
 The current code can output transcripts, audio analyses, and AI feedback. As of now, the frontend and backend must be manually run separately in two different terminals.
