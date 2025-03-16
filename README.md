@@ -8,6 +8,8 @@ Clone the repository
 
 git clone --branch milestone1-branch --single-branch https://github.com/Dwafsigil/JagCoach.git
 
+cd JagCoach
+
 
 ### Frontend 
 
