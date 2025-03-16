@@ -9,7 +9,7 @@ import parselmouth
 import openai 
 
 # Load API Key
-openai.api_key = "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"
+openai.api_key = "ChatGPT AI Key"
 
 if not openai.api_key:
     raise ValueError("OpenAI API key is missing. Ensure it is set in the environment.")
