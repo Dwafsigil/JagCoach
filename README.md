@@ -6,7 +6,8 @@ The current code can output transcripts, audio analyses, and AI feedback. As of 
 
 Clone the repository 
 
-git clone https://github.com/Dwafsigil/JagCoachTest.git
+git clone --branch milestone1-branch --single-branch https://github.com/Dwafsigil/JagCoach.git
+
 
 ### Frontend 
 
