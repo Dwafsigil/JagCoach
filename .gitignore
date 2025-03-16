@@ -26,4 +26,5 @@ yarn-error.log*
 vosk-model-small-en-us-0.15/
 venv/
 __pycache__/
+.vscode/
 >>>>>>> backend-repo/main
