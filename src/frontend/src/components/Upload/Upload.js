@@ -21,7 +21,7 @@ function Upload() {
     const formData = new FormData();
     formData.append("video", videoFile); 
     try {
-      const response = await fetch("http://34.55.142.231:5000/transcribe", {
+      const response = await fetch("http://localhost:5000/transcribe", {
         method: "POST",
         body: formData,
       });

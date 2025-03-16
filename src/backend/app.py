@@ -9,7 +9,7 @@ import parselmouth
 import openai 
 
 # Load API Key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "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"
 
 if not openai.api_key:
     raise ValueError("OpenAI API key is missing. Ensure it is set in the environment.")
@@ -84,21 +84,24 @@ def get_chatgpt_feedback(transcript, speech_rate, num_pauses, total_silence, avg
     - **Total Silence Duration:** {total_silence} seconds
     - **Average Pitch:** {avg_pitch} Hz
 
-    Provide feedback in the following format:
+    Provide feedback in the following format, make sure to be as detailed as possible:
     - **Tone Variation** (Does the speaker sound too monotone or is it engaging for the listeners?)
     - **Speech Rate** (Is the speaker speaking too fast, too slow, or is the pace decent?)
     - **Pauses and Filler Words** (Do the pauses feel natural? Are there too many pauses that it's awkward? Do the speaker use too much filler words?)
     - **Overall Feedback** (What are their strengths and areas of improvement?)
     """
 
+    
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are an expert public speaking coach."},
                 {"role": "user", "content": prompt}
+
             ]
         )
+
         return response["choices"][0]["message"]["content"]
     except Exception as e:
         return f"Error generating feedback: {str(e)}"
