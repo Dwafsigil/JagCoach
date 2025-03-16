@@ -21,6 +21,6 @@ cd JagCoach
 
 1. cd src/backend
 2. Make sure python3 is installed 
-3. Set up the environment and dependencies. (To set up the environment, run "python3 -m venv venv". To activate the environment, run ".\venv\Scripts\Activate". Then install all dependencies, "pip install -r requirements.txt".)
+3. Set up the environment and dependencies. (To set up the environment, run "python -m venv venv". To activate the environment, run ".\venv\Scripts\Activate". Then install all dependencies, "pip install -r requirements.txt".)
 4. Run the backend, "python app.py"
 >>>>>>> jagcoachtest/main
