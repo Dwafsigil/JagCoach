@@ -2,6 +2,8 @@
 
 The current code can output transcripts, audio analyses, and AI feedback. However, the frontend and backend must be manually run separately in two different terminals.
 
+Also, to run the code, you will need an API Key for OpenAI Chatgpt. You will also need to replace the line in app.py asking for an API Key with your own key.
+
 ## Installation Steps
 
 Clone the repository 
