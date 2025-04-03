@@ -7,6 +7,8 @@ import librosa
 import numpy as np
 import parselmouth
 import openai 
+from deepface import DeepFace
+import cv2
 
 # Load API Key
 openai.api_key = os.environ["OPENAI_API_KEY"]
@@ -73,21 +75,64 @@ def transcribe_video():
         "ai_feedback": feedback
     })
 
-def get_chatgpt_feedback(transcript, speech_rate, num_pauses, total_silence, avg_pitch):
-    """Send the speech analysis data to ChatGPT and return AI-generated feedback."""
+# Analyse facial expressions using deepface
+def analyze_facial_expressions(video_path):
+    """Analyze facial expressions using DeepFace"""
+    cap = cv2.VideoCapture(video_path)
+    emotions = []
+    dominant_emotions = []
+    
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+            
+        try:
+            # Analyze every 5th frame (adjust based on needs)
+            if cap.get(cv2.CAP_PROP_POS_FRAMES) % 5 == 0:
+                analysis = DeepFace.analyze(
+                    img_path=frame, 
+                    actions=['emotion'],
+                    enforce_detection=False,
+                    detector_backend='retinaface'
+                )
+                if analysis:
+                    emotions.append(analysis[0]['emotion'])
+                    dominant_emotions.append(analysis[0]['dominant_emotion'])
+        except Exception as e:
+            print(f"Face analysis error: {str(e)}")
+    
+    cap.release()
+    
+    # Calculate summary statistics
+    return {
+        'emotion_variety': list(set(dominant_emotions)),
+        'avg_emotions': {k: np.mean([d[k] for d in emotions]) for k in emotions[0]} if emotions else {},
+        'dominant_emotion': max(set(dominant_emotions), key=dominant_emotions.count) if dominant_emotions else None,
+        'face_found': len(emotions) > 0
+    }
+
+def get_chatgpt_feedback(transcript, speech_rate, num_pauses, total_silence, avg_pitch, facial_analysis):
+    """Send the speech and faclial analysis data to ChatGPT and return AI-generated feedback."""
     prompt = f"""
-    You are an expert in public speaking and speech analysis. Analyze the following speech data and provide constructive feedback on the presenter's performance.
+    You are an expert in public speaking and speech analysis. Analyze the following speech and facial data data and provide constructive feedback on the presenter's performance.
 
     - **Transcript of Speech:** {transcript}
     - **Speech Rate:** {speech_rate} words per second
     - **Number of Pauses:** {num_pauses}
     - **Total Silence Duration:** {total_silence} seconds
     - **Average Pitch:** {avg_pitch} Hz
+    - **Facial Expressions**:
+      - Dominant Emotion: {facial_analysis.get('dominant_emotion', 'None detected')}
+      - Emotion Variety: {', '.join(facial_analysis.get('emotion_variety', []))}
+      - Engagement Score: {facial_analysis.get('avg_emotions', {}).get('happy', 0) * 100:.1f}%
+    
 
     Provide feedback in the following format, make sure to be as detailed as possible:
     - **Tone Variation** (Does the speaker sound too monotone or is it engaging for the listeners?)
     - **Speech Rate** (Is the speaker speaking too fast, too slow, or is the pace decent?)
     - **Pauses and Filler Words** (Do the pauses feel natural? Are there too many pauses that it's awkward? Do the speaker use too much filler words?)
+    - **Facial Feedback** (What is the dominant emotion/s and how engaged is the presenter?)
     - **Overall Feedback** (What are their strengths and areas of improvement?)
     """
 
