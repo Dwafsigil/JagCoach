@@ -1,59 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Library.css";
 
-const Resource = () => {
-  // Simulated uploaded videos with multiple AI feedback categories
-  const [videos] = useState([
-    { 
-      id: 1, 
-      title: "Project Presentation", 
-      feedback: [
-        { category: "Clarity", comment: "Your speech was clear and well-paced." },
-        { category: "Engagement", comment: "Good eye contact and enthusiasm in your tone." },
-        { category: "Confidence", comment: "You appeared confident, but avoid too many filler words." }
-      ]
-    },
-    { 
-      id: 2, 
-      title: "Project Presentation 2", 
-      feedback: [
-        { category: "Clarity", comment: "Try to enunciate words more clearly." },
-        { category: "Pacing", comment: "Slow down slightly for better comprehension." },
-        { category: "Pronunciation", comment: "Some words were mispronounced; try slowing down." }
-      ]
-    },
-    { 
-      id: 3, 
-      title: "Project Presentation 3", 
-      feedback: [
-        { category: "Confidence", comment: "Excellent confidence and strong voice projection." },
-        { category: "Content", comment: "Great structure, but ensure smooth transitions between topics." },
-        { category: "Delivery", comment: "Try to use more hand gestures for engagement." }
-      ]
+const Library = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/videos")
+      .then((res) => res.json())
+      .then((data) => setVideos(data))
+      .catch((err) => console.error("Failed to load videos:", err));
+  }, []);
+
+  const handleDelete = async (title) => {
+    try {
+      await fetch(`http://localhost:5000/delete/${title}`, {
+        method: "DELETE",
+      });
+      setVideos((prev) => prev.filter((v) => v.title !== title));
+    } catch (err) {
+      console.error("Failed to delete video:", err);
     }
-  ]);
+  };
 
   return (
     <div className="resource-section">
-      <h1>Library</h1>
-      <p>Here you can find stored videos along with AI feedback.</p>
+      <div className="library-header">
+        <h1>Your Library</h1>
+        <p>Here you can find stored videos along with JagCoach feedback.</p>
+      </div>
 
-      <div className="video-container">
-        {videos.map((video) => (
-          <div key={video.id} className="video-card">
+      <div className="card-holder">
+        {videos.map((video, index) => (
+          <div key={index} className="video-card">
+            {/* ❌ Delete button */}
+            <button className="delete-btn" onClick={() => handleDelete(video.title)}>
+              &times;
+            </button>
+
             <h3>{video.title}</h3>
 
-            <video controls>
-               <source src={video.url} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {video.video_url ? (
+              <video controls>
+                <source src={video.video_url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={video.thumbnail_url || "https://via.placeholder.com/300x200"}
+                alt="Thumbnail"
+                className="video-thumbnail"
+              />
+            )}
 
             <div className="feedback-container">
-              {video.feedback.map((item, index) => (
-                <div key={index} className="feedback-box">
-                  <strong>{item.category}:</strong> {item.comment}
-                </div>
-              ))}
+              <strong>AI Feedback:</strong>
+              {video.feedback && Array.isArray(video.feedback) ? (
+                video.feedback.map((item, idx) => (
+                  <div key={idx} className="feedback-box">
+                    <strong>{item.category}:</strong> {item.comment}
+                  </div>
+                ))
+              ) : (
+                <p>No feedback available.</p>
+              )}
             </div>
           </div>
         ))}
@@ -62,4 +71,4 @@ const Resource = () => {
   );
 };
 
-export default Resource;
+export default Library;

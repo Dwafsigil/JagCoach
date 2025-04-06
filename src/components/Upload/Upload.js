@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import "./Upload.css";
 
 function Upload() {  
     const [videoFile, setVideoFile] = useState(null);
-    const [transcript, setTranscript] = useState("Transcript will appear here after processing.");
+    const navigate = useNavigate(); // Hook for navigation
 
     const handleFileChange = (event) => {
         setVideoFile(event.target.files[0]);
@@ -25,10 +26,13 @@ function Upload() {
             });
 
             const data = await response.json();
-            setTranscript(data.transcript);
+
+            // Navigate to Feedback page and pass the transcript data
+            navigate("/feedback", { state: { transcript: data.transcript } });
+
         } catch (error) {
             console.error("Error analyzing video:", error);
-            setTranscript("Error processing video. Please try again.");
+            navigate("/feedback", { state: { transcript: "Error processing video. Please try again." } });
         }
     };
 
@@ -45,11 +49,6 @@ function Upload() {
                         </video>
                     )}
                     <button onClick={handleAnalyze}>Analyze Video</button>
-                </div>
-
-                <div className="transcript-section">
-                    <h1>Analyze - AI Transcript</h1>
-                    <div id="transcript">{transcript}</div>
                 </div>
             </div>
         </div>
