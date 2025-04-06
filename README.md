@@ -3,10 +3,10 @@
 ##  Installation Steps
 
 ### FrontEnd (React):
-###  Clone the repository:
+###  Navigate to the frontend folder:
 ```sh
-git clone https://github.com/your-username/JagCoachtest.git
-cd JagCoachtest
+cd JagCoach
+cd src/frontend
 ```
 
 ###  Install dependencies:
@@ -31,6 +31,7 @@ npm start
   
 ###  Navigate to the backend folder:
 ```bash
+cd JagCoach
 cd src/backend
 ```
 
@@ -57,7 +58,7 @@ brew services start mongodb-community
 mongod
 ```
 
-### 5️⃣ Run the Flask backend:
+### Run the Flask backend:
 ```bash
 python app.py
 ```
