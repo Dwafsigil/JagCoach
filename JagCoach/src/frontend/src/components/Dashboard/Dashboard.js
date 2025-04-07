@@ -9,6 +9,7 @@ function Dashboard() {
     const [feedback, setFeedback] = useState("AI feedback will appear here...");
     const [isModelLoaded, setIsModelLoaded] = useState(false); // Track if the model is loaded
     const videoRef = useRef(null);
+    const voskModelRef = useRef(null); // Ref to store the Vosk model
     let recognition = null;
 
     const navigate = useNavigate(); // For navigating to another page if needed
@@ -31,8 +32,8 @@ function Dashboard() {
         const bufferSize = 1024;
         const buffer = new Float32Array(bufferSize);
         
-        // Creating a Vosk recognizer
-        recognition = new vosk.Recognizer({ model: voskModel, sampleRate: audioContext.sampleRate });
+        // Use the model from the ref
+        recognition = new vosk.Recognizer({ model: voskModelRef.current, sampleRate: audioContext.sampleRate });
 
         const processAudio = () => {
             analyser.getFloatTimeDomainData(buffer);
@@ -57,7 +58,8 @@ function Dashboard() {
     // Load Vosk model asynchronously
     const loadModel = async () => {
         try {
-            const voskModel = await new vosk.Model("model"); // Ensure this path is correct
+            const voskModel = new vosk.Model("model"); // Ensure this path is correct
+            voskModelRef.current = voskModel; // Store the model in the ref
             setIsModelLoaded(true); // Model loaded successfully
         } catch (error) {
             console.error("Error loading Vosk model", error);
@@ -111,3 +113,4 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
