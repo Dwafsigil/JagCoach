@@ -12,7 +12,7 @@ import cv2
 from collections import Counter
 
 # Load API Key
-openai.api_key = "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"
+openai.api_key = "Insert OpenAI Key"
 if not openai.api_key:
     raise ValueError("OpenAI API key is missing. Ensure it is set in the environment.")
 
