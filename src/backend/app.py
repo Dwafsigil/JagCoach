@@ -138,7 +138,7 @@ Provide feedback in the following format:
 - **Tone Variation**
 - **Speech Rate**
 - **Pauses and Filler Words**
-- **Facial Expression/Eye Contact** (Did the speaker appear emotionally aligned with their speech? Was eye contact maintained and effective?)
+- **Facial Expression/Eye Contact** (Did the speaker maintain eye contact effectively? Were their expressions and emotions aligned with the topic of their presentation?)
 - **Overall Feedback**
 (DO NOT ADD ANYTHING ELSE EXCEPT FOR THE FORMAT, however still be as detailed as possible.)
 """
