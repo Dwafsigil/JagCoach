@@ -39,8 +39,9 @@ const Feedback = () => {
                         dangerouslySetInnerHTML={{ 
                             __html: analysis.ai_feedback
                                 .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")  
-                                .replace(/(?:\r\n|\r|\n)/g, "<br><br>")           
-                                .replace(/- /g, "<br>• ")                          
+                                .replace(/^- /gm, "<br>• ")           
+                                .replace(/\n{2,}/g, "<br><br>")  
+                                .replace(/\n/g, " ")                        
                         }} 
                     />
                 </div>
