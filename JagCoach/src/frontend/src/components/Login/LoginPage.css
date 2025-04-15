@@ -1,14 +1,16 @@
+
 .login-container {
     width: 350px;
-    margin: 100px auto;
+    margin: 100px auto; 
     padding: 30px 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); 
     background-color: white;
     text-align: left;
     font-family: Arial, sans-serif;
 }
 
+/* Title at the top (Login or Register) */
 .login-container h2 {
     font-size: 26px;
     font-weight: bold;
@@ -16,6 +18,7 @@
     text-align: center;
 }
 
+/* Error message under password/email input */
 .error-message {
     color: red;
     font-size: 14px;
@@ -23,25 +26,28 @@
     margin-bottom: 10px;
 }
 
+/* Label for each input field like "Email" or "Password" */
 .login-container label {
     font-weight: bold;
     display: block;
     margin: 10px 0 5px;
 }
 
-.login-container input {
+/* Input fields where users type info */
+.login-container input{
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     font-size: 16px;
     border-radius: 4px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
+/* Login/Register button */
 .login-button {
     padding: 12px 20px;
-    background-color: #2e7d32;
+    background-color: #2e7d32; 
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -49,17 +55,15 @@
     border-radius: 6px;
     cursor: pointer;
     display: block;
-    margin: 10px auto;  
-    width: 100%;         
+    margin: 10px auto;
+    width: 100%;
 }
-
 
 .login-button:hover {
-    background-color: #1b5e20;
-    
-    
+    background-color: #1b5e20; 
 }
 
+/* Text area under form */
 .toggle {
     text-align: center;
     margin-top: 15px;
@@ -67,6 +71,7 @@
     color: #555;
 }
 
+/* Sign Up or Login button below the toggle text */
 .toggle button {
     margin-top: 10px;
     width: 100%;
@@ -78,10 +83,12 @@
     cursor: pointer;
 }
 
+/* Hover effect for the old toggle button */
 .toggle button:hover {
     background-color: #ddd;
 }
 
+/* Logo image above the form */
 .login-logo {
     width: 200px;
     height: auto;
@@ -89,3 +96,19 @@
     margin: 0 auto 20px;
 }
 
+/* Sign Up or Login button inside the text */
+.toggle-button {
+    background: none;
+    border: none;
+    color: #1a73e8; /* blue text */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0;
+    margin-left: 6px;
+}
+
+/* Underline when you hover over the Sign Up / Login link */
+.toggle-button:hover {
+    text-decoration: underline;
+}
