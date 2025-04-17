@@ -1,5 +1,21 @@
 #  JagCoach UI - Team 2
 
+
+##  Using the Application
+
+1. Open the app in your browser: [http://localhost:3000](http://localhost:3000)
+2. Create a new account by entering your **name**, **email**, and **password**.
+3. Log in using your registered **email** and **password**.
+4. Navigate to the **Upload** page and submit a presentation video file.
+5. The system will automatically store the video and generate **simulated AI feedback**.
+6. Go to the **Library** page to view a list of uploaded videos and see feedback.
+7. You can also **delete videos** from the Library.
+8. Visit the **Feedback** page to review a **simulated transcript** of your presentation.
+
+> ⚠️ Note: This branch focuses on implementing the frontend and database connection only.  
+> The Library page currently displays all uploaded videos, and AI feedback is simulated.  
+> User-specific video filtering will be implemented soon.
+
 ##  Installation Steps
 
 ### FrontEnd (React):
