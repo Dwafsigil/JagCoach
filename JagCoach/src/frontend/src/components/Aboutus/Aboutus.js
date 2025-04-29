@@ -4,6 +4,14 @@ import "./Aboutus.css";
 const AboutUs = () => {
   return (
     <div className="about-container">
+      
+      {/* Intro Title */}
+      <div className="intro-section">
+        <h1>Welcome to JagCoach</h1>
+        <p>Your personal AI coach for mastering public speaking and presentations.</p>
+      </div>
+
+      {/* Grid Info Boxes */}
       <div className="grid-container">
         <div className="info-box">
           <h2>Our Mission</h2>
@@ -36,7 +44,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Our Team Section */}
+      {/* Our Team */}
       <div className="team-section">
         <h2>Our Team</h2>
         <p>Meet the talented individuals behind JagCoach - Team 2!</p>
@@ -59,7 +67,7 @@ const AboutUs = () => {
 
           <div className="team-box">
             <strong>Charisma Ricarte</strong>
-            <p>BackEnd, FrontEnd</p>
+            <p>BackEnd</p>
           </div>
 
           <div className="team-box">
@@ -68,10 +76,9 @@ const AboutUs = () => {
           </div>
 
           <div className="team-box">
-            <strong>Jakarri</strong>
-            <p>Project Manager</p>
+            <strong>Jakarria Wilcox</strong>
+            <p>Project Manager, Frontend</p>
           </div>
-
         </div>
       </div>
     </div>

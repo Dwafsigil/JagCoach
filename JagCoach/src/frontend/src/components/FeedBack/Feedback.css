@@ -1,40 +1,107 @@
-.analysis-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-    width: 100vw; 
-    background-color: #ffffff; 
-    text-align: center; 
-}
-
-h1 {
-    font-size: 45px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-.analysis-list {
+.feedback-page {
+    background-color: #fffbe6;
+    position: relative;
+    padding: 40px 20px;
+    padding-top: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-}
-
-.analysis-item {
-    background: #f8f8f8;
-    border: 2px solid #ffcc00;
-    border-radius: 20px;
+  }
+  
+  /* Title as background */
+  .feedback-hint-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .feedback-hint-overlay h1 {
+    font-size: 72px;
+    font-weight: 800;
+    color: #702E3D;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-hint-overlay p {
+    font-size: 24px;
+    font-weight: 400;
+    color: #702E3D;
+  }
+  
+  
+  /* Feedback grid stays on top */
+  .feedback-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "video live"
+      "transcript transcript"
+      "analysis ai";
+    gap: 30px;
+    width: 90%;
+    max-width: 1300px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Feedback boxes */
+  .feedback-box {
+    background: white;
+    border: 2px solid #702E3D;
+    border-radius: 12px;
     padding: 20px;
-    margin: 10px;
-    width: 400px; 
-    text-align: left;
-    font-size: 16px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
+    overflow-y: auto;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Grid areas */
+  .video-preview-box {
+    grid-area: video;
+    height: 400px;
+  }
+  
+  .live-feedback-box {
+    grid-area: live;
+    height: 400px;
+  }
+  
+  .transcript-box {
+    grid-area: transcript;
+    height: 400px;
+  }
+  
+  .analysis-box {
+    grid-area: analysis;
+    height: 400px;
+  }
+  
+  .ai-feedback-box {
+    grid-area: ai;
+    height: 400px;
+  }
+  
+  .feedback-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .feedback-box h2 {
+    color: #702E3D;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-box p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+  

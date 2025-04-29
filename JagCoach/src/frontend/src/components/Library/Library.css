@@ -1,118 +1,154 @@
 /* Section Container */
 .resource-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 100px 20px 40px;
-    width: 100%;
-    background-color: #fffbe6;
-  }
-  
-  /* Header */
-  .library-header {
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
-  
-  .library-header h1 {
-    font-size: 40px;
-    font-weight: bold;
-    color: #302c2b;
-    margin-bottom: 10px;
-  }
-  
-  .library-header p {
-    font-size: 18px;
-    color: #666;
-  }
-  
-  /* Card Holder Grid */
+  position: relative;
+  min-height: 100vh;
+  padding: 200px 20px 40px;
+  background-color: #fffbe6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Background hint text */
+.background-hint {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0.08;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-hint h1 {
+  font-size: 80px;
+  color: #702E3D;
+  margin-bottom: 10px;
+}
+
+.background-hint p {
+  font-size: 24px;
+  color: #702E3D;
+}
+
+/* Card Holder Grid */
+.card-holder {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Video Card */
+.video-card {
+  position: relative;
+  background: #fff;
+  border: 2px solid #702E3D;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Delete Button */
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #702E3D;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  font-size: 28px;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: auto;
+  box-shadow: none;      
+  outline: none;           
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: #d9363e;
+  background: none;
+  box-shadow: none;
+}
+
+/* Video and Thumbnail */
+video,
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Feedback Container */
+.feedback-container {
+  margin-top: 10px;
+}
+
+.feedback-box {
+  background: #f9f9f9;
+  border-left: 4px solid #702E3D;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Tabs */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tab-btn {
+  padding: 6px 12px;
+  margin: 0 5px;
+  border: 2px solid #702E3D;
+  background: white;
+  color: #702E3D;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.tab-btn:hover {
+  background: #702E3D;
+  color: white;
+}
+
+.tab-btn.active {
+  background: #702E3D;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
   .card-holder {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px;
+    grid-template-columns: 1fr;
   }
 
-  .delete-btn {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: #702E3D;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1;
-    font-size: 28px;
-    padding: 0;
-    margin: 0;
-    width: auto;
-    height: auto;
-    box-shadow: none;      
-    outline: none;           
-    cursor: pointer;
+  .background-hint h1 {
+    font-size: 50px;
   }
-  
-  .delete-btn:hover {
-    color: #d9363e;
-    background: none;
-    box-shadow: none;
+
+  .background-hint p {
+    font-size: 18px;
   }
-  
-  
-  
-  /* Video Card */
-  .video-card {
-    position: relative; 
-    background: #fff;
-    border: 2px solid #702E3D;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Video and Thumbnail */
-  video,
-  .video-thumbnail {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-  }
-  
-  /* Feedback Container */
-  .feedback-container {
-    margin-top: auto;
-    margin-top: 10px;
-  }
-  
-  .feedback-box {
-    background: #f9f9f9;
-    border-left: 4px solid #702E3D;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  /* Responsive */
-  @media (max-width: 600px) {
-    .card-holder {
-      grid-template-columns: 1fr;
-    }
-  
-    .library-header h1 {
-      font-size: 30px;
-    }
-  
-    .library-header p {
-      font-size: 16px;
-    }
-  }
-  
+}

@@ -1,58 +1,99 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 import "./Upload.css";
 
-function Upload() {  
-    const [videoFile, setVideoFile] = useState(null);
-    const navigate = useNavigate(); // Hook for navigation
+function Upload() {
+  const [videoFile, setVideoFile] = useState(null);
+  const [rubricText, setRubricText] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const [liveFeedback, setLiveFeedback] = useState("");
+  const navigate = useNavigate();
 
-    const handleFileChange = (event) => {
-        setVideoFile(event.target.files[0]);
-    };
+  const handleFileChange = (event) => {
+    setVideoFile(event.target.files[0]);
+    setLiveFeedback("");
+  };
 
-    const handleAnalyze = async () => {
-        if (!videoFile) {
-            alert("Please upload a video first.");
-            return;
-        }
+  const handleRubricChange = (event) => {
+    setRubricText(event.target.value);
+  };
 
-        const formData = new FormData();
-        formData.append("file", videoFile);
+  const handleAnalyze = async () => {
+    if (!videoFile) {
+      alert("Please upload a video first.");
+      return;
+    }
 
-        try {
-            const response = await fetch("http://localhost:5000/upload", {
-                method: "POST",
-                body: formData,
-            });
+    const email = localStorage.getItem("userEmail");
+    const formData = new FormData();
+    formData.append("video", videoFile);
+    formData.append("rubric", rubricText);
+    formData.append("email", email);
 
-            const data = await response.json();
+    setUploading(true);
+    setLiveFeedback("Analyzing... please wait...");
 
-            // Navigate to Feedback page and pass the transcript data
-            navigate("/feedback", { state: { transcript: data.transcript } });
+    try {
+      const response = await fetch("http://localhost:5000/transcribe", {
+        method: "POST",
+        body: formData,
+      });
 
-        } catch (error) {
-            console.error("Error analyzing video:", error);
-            navigate("/feedback", { state: { transcript: "Error processing video. Please try again." } });
-        }
-    };
+      const data = await response.json();
 
-    return (
-        <div className="container">
-            <div className="upload-content">
-                <div className="video-section">
-                    <h1>Upload your video</h1>
-                    <input type="file" accept="video/*" onChange={handleFileChange} />
-                    {videoFile && (
-                        <video controls>
-                            <source src={URL.createObjectURL(videoFile)} type={videoFile.type} />
-                            Your browser does not support the video tag.
-                        </video>
-                    )}
-                    <button onClick={handleAnalyze}>Analyze Video</button>
-                </div>
-            </div>
+      if (response.ok) {
+        setLiveFeedback("✅ Analysis Complete!");
+        navigate("/feedback", {
+          state: {
+            transcript: data.transcript,
+            analysis: data,
+          },
+        });
+      } else {
+        const errMsg = data.error || "Error processing video. Please try again.";
+        setLiveFeedback(errMsg);
+      }
+    } catch (error) {
+      console.error("Error analyzing video:", error);
+      setLiveFeedback("Error: Network or server issue.");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  return (
+    <div className="upload-container">
+      <div className="upload-section">
+        <h1>Upload Your Presentation</h1>
+
+        <input type="file" accept="video/*" onChange={handleFileChange} />
+
+        {videoFile && (
+          <video controls>
+            <source src={URL.createObjectURL(videoFile)} type={videoFile.type} />
+            Your browser does not support the video tag.
+          </video>
+        )}
+
+        <textarea
+          placeholder="(Optional) Enter your custom rubric here..."
+          value={rubricText}
+          onChange={handleRubricChange}
+        />
+
+        <button onClick={handleAnalyze} disabled={uploading}>
+          {uploading ? "Analyzing..." : "Analyze Video"}
+        </button>
+      </div>
+
+      {liveFeedback && (
+        <div className="live-feedback-box">
+          <h3>Live Feedback</h3>
+          <p>{liveFeedback}</p>
         </div>
-    );
+      )}
+    </div>
+  );
 }
 
 export default Upload;
