@@ -1,50 +1,278 @@
+/* Sidebar styles */
 .navbar {
-    width: 100%;
-    background: #333;
+    width: 154px; 
+    height: 100%; 
+    background: #702E3D; 
     color: white;
     display: flex;
-    align-items: center;
-    padding: 15px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px 0px 20px;
     position: fixed;
+    flex-direction: column;
+    align-items: center;
+    
     top: 0;
     left: 0;
-    z-index: 1000;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  
+    }
+    .logo{
+      cursor: pointer;
+    }
+.nav-logo{
+    width: 30px;
+    margin-right: 6px;
+   
 }
 
-.nav-left {
-    display: flex;
-    align-items: center;
-    margin-right: 100px;
-}
-
+/* Logo at the top */
 .navbar .logo {
-    font-size: 28px;
+    font-size: 27px;
     font-weight: bold;
-    color: yellow;
-    margin-right: 200px;
+    color: white;
+    display: flex;
 }
 
+/* Navigation Links */
 .navbar .nav-links {
     list-style: none;
     display: flex;
-    gap: 100px;
-    margin: 0;
+    flex-direction: column;
+    width: 100%;
     padding: 0;
+    margin: 0;
+    align-items: center;
+   
 }
 
+/* Style for Navbar Links */
 .navbar .nav-links li {
-    display: inline;
+    width: 90%;
+    padding-right: 15px;
 }
 
 .navbar .nav-links li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     color: white;
     text-decoration: none;
-    font-size: 22px;
-    transition: color 0.3s;
+    font-size: 18px;
     font-weight: bold;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 8px 0px 0px 8px;
+}
+.login-button{
+  width: 194px; 
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 50px;
+  border-radius: 0px 0px 0px 0px;
+}
+/* link style */
+.active-empty{
+    background-color: white;
+    margin: 0px 0px 0px 40px;
+    color: #702E3D;
+    
+   
+}
+.empty{
+    background-color:  #702E3D;
+    margin: 0px 0px 0px 40px;
+    color: #702E3D;
+
+}
+.empty-div{
+    background-color: #702E3D;
+    width: 82%;
+    padding: 0px 20px;
+    margin: 0px;
+    border-radius: 0px 8px 0px 0px;
+    color: #702E3D;
+}
+.active-empty-div{
+    background-color: #702E3D;
+    width: 82%;
+    padding: 0px 20px;
+    margin: 0px;
+    border-radius: 0px 0px 8px 0px;
+    color: #702E3D;
 }
 
 .navbar .nav-links li a:hover {
-    color: #ffcc00;
+    background: rgba(255, 255, 255, 0.15); 
+    color: white; 
+  
+  }
+  .navbar .nav-links li a.active {
+    background: white;         
+    color: #702E3D;              
+    border-left: 4px solid #854D5A; 
+    
+  }  
+  
+  .logout-button-div{
+width: 100%;
+
+  }
+  .logout-button{
+    width: 100%;
+    background-color: #702E3D;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  .login-form{
+    margin-bottom: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+  }
+  .login-header{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .login-header button{
+   
+   
+    margin: 0px;
+    padding: 5px 8px;
+  background-color: white;
+color: #111827;}
+.login-header button:hover{
+  margin: 0px;
+  padding: 5px 8px;
+background-color: rgba(181, 181, 181, 0.3);
+color: #111827;}
+  .login-form label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151; 
+  }
+  .login-form input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e7eb; 
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: #111827; 
+    background-color: #f9fafb; 
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1rem;
+  }
+  input:focus {
+    border-color: #854D5A; 
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  }
+  .login-form button{
+    background-color: #702E3D;
+  }
+button{
+    background-color: #702E3D;
+    border-radius: 5px;
+  }
+  button:hover{
+    background-color:#854D5A;
+  }
+.login-icon{
+  margin-left: 15px;
+
 }
+  @media (max-width: 768px) {
+    .navbar {
+        width: 50px; 
+        height: 100vh; 
+        background: #702E3D; 
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 20px 0px 20px;
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        top: 0;
+        left: 0;
+      
+        }
+        .login-button{
+          width: 90px;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 20px 15px;
+          border-radius: 0px 0px 0px 0px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+        .nav-text {
+            display: none;
+          }
+          .login-button div{
+            display: none;
+          }
+          .nav-logo{
+            margin: 0;
+            padding: 0;
+          }
+          .empty-div{
+            background-color: #702E3D;
+            width: 15px;
+            padding: 0px 20px;
+            margin: 0px;
+            border-radius: 0px 8px 0px 0px;
+            color: #702E3D;
+        }
+        .active-empty-div{
+            background-color: #702E3D;
+            width: 15px;
+            padding: 0px 20px;
+            margin: 0px;
+            border-radius: 0px 0px 8px 0px;
+            color: #702E3D;
+        }
+        .empty{
+            background-color:  #702E3D;
+            margin: 0px 0px 0px 30px;
+            color: #702E3D;
+        
+        }
+       
+          .active-empty{
+            background-color: white;
+            margin: 0px 0px 0px 40px;
+            color: #702E3D;
+            
+           
+        }
+       
+        }
+  @media (max-width: 480px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+    .login-button{
+      width: 100px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2px 2px;
+      border-radius: 0px 0px 0px 0px;
+    }
+  }
+  

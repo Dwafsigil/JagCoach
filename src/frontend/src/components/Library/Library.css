@@ -1,77 +1,146 @@
 .resource-section {
-    width: 100vw;
-    min-height: 100vh;
-    background: white; 
-    display: flex;
-    margin-top: 100px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+  margin: 0px 15px 25px 15px;
+  color: #302c2b;
+  height: 100%;
 }
 
+.resource-content {
+  padding: 0px 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+/* Main Heading */
 .resource-section h1 {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  margin-bottom: 25px;
+  font-size: calc(1.4rem + 1vw);
+  font-weight: bold;
+  color: #302c2b;
 }
 
-.resource-section p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 20px;
-}
-
+/* Video Container */
 .video-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 90%;
-    max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
 }
 
+/* Video Card Styling */
 .video-card {
-    background: #f8f8f8;
-    padding: 15px;
-    border-radius: 10px;
-    border: 2px solid #ffcc00;
-    width: 300px;
-    height: 600px;
-    margin-top: 50px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #702E3D;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
 }
 
-video {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    background: black;
-    margin-bottom: 30px; 
+.video-card:hover {
+  transform: translateY(-5px);
 }
 
-.feedback-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px; 
-    width: 100%;
+/* Video Thumbnail */
+.video-thumbnail {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  pointer-events: none;
 }
 
-.feedback-box {
-    background: whitesmoke;
-    padding: 8px;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
-    border: 1px solid black;
-    width: 94%;
-    text-align: left;
-    margin-bottom: 5px; 
+.video-card:hover .video-thumbnail {
+  pointer-events: auto; 
 }
 
+/* Read More Button */
+.read-more-btn {
+  padding: 10px 15px;
+  background-color: #702E3D;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+.read-more-btn:hover {
+  background-color: maroon;
+}
+
+/* Modal */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #702E3D;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Close Button */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #702E3D;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-button:hover {
+  color: maroon;
+  transform: scale(1);
+}
+
+/* Modal Body */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Video inside Modal */
+.modal-video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* AI Feedback section */
+.modal-feedback {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.feedback-section {
+  margin-bottom: 15px;
+}
+
+.feedback-section h3 {
+  color: #702E3D;
+  margin-bottom: 8px;
+}

@@ -4,36 +4,21 @@ import "./Aboutus.css";
 const AboutUs = () => {
   return (
     <div className="about-container">
+      <h1>About Us</h1>
       <div className="grid-container">
-        <div className="info-box">
-          <h2>Our Mission</h2>
-          <p>JagCoach helps individuals improve their presentation skills through AI-powered feedback.</p>
-        </div>
-
-        <div className="info-box">
-          <h2>How It Works</h2>
-          <p>Upload your presentation video, and our AI analyzes clarity, confidence, and engagement.</p>
-        </div>
-
-        <div className="info-box">
-          <h2>Why Choose JagCoach?</h2>
-          <p>Our platform provides insightful feedback tailored to your speaking style.</p>
-        </div>
-
-        <div className="info-box">
-          <h2>AI Analysis</h2>
-          <p>Our AI evaluates pacing, pronunciation, and delivery for improvement.</p>
-        </div>
-
-        <div className="info-box">
-          <h2>Personalized Feedback</h2>
-          <p>Receive tailored suggestions based on your unique presentation style.</p>
-        </div>
-
-        <div className="info-box">
-          <h2>Continuous Learning</h2>
-          <p>Track your progress and refine your presentation skills over time.</p>
-        </div>
+        {[
+          { title: "Our Mission", content: "JagCoach helps individuals improve their presentation skills through AI-powered feedback." },
+          { title: "How It Works", content: "Upload your presentation video, and our AI analyzes clarity, confidence, and engagement." },
+          { title: "Why Choose JagCoach?", content: "Our platform provides insightful feedback tailored to your speaking style." },
+          { title: "AI Analysis", content: "Our AI evaluates pacing, pronunciation, and delivery for improvement." },
+          { title: "Personalized Feedback", content: "Receive tailored suggestions based on your unique presentation style." },
+          { title: "Continuous Learning", content: "Track your progress and refine your presentation skills over time." }
+        ].map((box, index) => (
+          <div key={index} className="info-box">
+            <h2>{box.title}</h2>
+            <p>{box.content}</p>
+          </div>
+        ))}
       </div>
 
       {/* Our Team Section */}
@@ -42,36 +27,19 @@ const AboutUs = () => {
         <p>Meet the talented individuals behind JagCoach - Team 2!</p>
 
         <div className="team-container">
-          <div className="team-box">
-            <strong>Johnny Tu</strong>
-            <p>Team Leader, BackEnd</p>
-          </div>
-
-          <div className="team-box">
-            <strong>Charidi Stevens</strong>
-            <p>FrontEnd</p>
-          </div>
-
-          <div className="team-box">
-            <strong>David Ludemann</strong>
-            <p>BackEnd</p>
-          </div>
-
-          <div className="team-box">
-            <strong>Charisma Ricarte</strong>
-            <p>BackEnd, FrontEnd</p>
-          </div>
-
-          <div className="team-box">
-            <strong>Bao Phuc Nguyen</strong>
-            <p>BackEnd, FrontEnd</p>
-          </div>
-
-          <div className="team-box">
-            <strong>Jakarri</strong>
-            <p>Project Manager</p>
-          </div>
-
+          {[
+            { name: "Johnny Tu", role: "Team Leader, BackEnd" },
+            { name: "Charidi Stevens", role: "FrontEnd" },
+            { name: "David Ludemann", role: "BackEnd" },
+            { name: "Charisma Ricarte", role: "BackEnd" },
+            { name: "Bao Phuc Nguyen", role: "BackEnd, FrontEnd" },
+            { name: "Jakarria Wilcox", role: "Project Manager, Frontend" }
+          ].map((member, index) => (
+            <div key={index} className="team-box">
+              <strong>{member.name}</strong>
+              <p>{member.role}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
