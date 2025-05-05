@@ -1,26 +1,34 @@
 #  JagCoach UI - Team 2
 
-The current code can output transcripts, audio analyses, and AI feedback. As of now, the frontend and backend must be manually run separately in two different terminals.
+Our project aims to provide AI-generated feedback for presentations with the goal of improvement.
+
+As of now, the frontend and backend must be run separately. 
 
 ## Installation Steps
 
-Clone the repository 
+### Clone the repository 
 
-git clone --branch milestone1-branch --single-branch https://github.com/Dwafsigil/JagCoach.git
+git clone --branch milestone3-branch --single-branch https://github.com/Dwafsigil/JagCoach.git
 
-cd JagCoach
+### Set up Environment and Dependencies
 
+"python -m venv venv" (Create environment)
+
+"source venv/bin/activate" (Ensure environment is always up when running frontend and backend.)
+
+"pip install -r requirements.txt" (Install dependencies)
 
 ### Frontend 
-
 1. cd src/frontend
 2. npm install
 3. npm start
 
 ### Backend 
-
 1. cd src/backend
-2. Make sure python3 is installed 
-3. Set up the environment and dependencies. (To set up the environment, run "python -m venv venv". To activate the environment, run ".\venv\Scripts\Activate". Then install all dependencies, "pip install -r requirements.txt".)
-4. Run the backend, "python app.py"
->>>>>>> jagcoachtest/main
+2. Run the backend, "python3 app.py"
+
+### How to Use the Application
+1. Create an account
+2. Log in to the account
+3. Upload a video to be analyzed. Providing a rubric is optional.
+4. Click analyze, then view results.
